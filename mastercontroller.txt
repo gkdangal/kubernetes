@@ -1,0 +1,41 @@
+    1  bash script.sh 
+    2  passwd
+    3  useradd govinda
+    4  usermod -g wheel govinda
+    5  passwd govinda
+    6  exit
+    7  hostname
+    8  vim /etc/hosts
+    9  ping gkdangal4.mylabserver.com
+   10  ping gkdangal5.mylabserver.com
+   11  yum -y install ntp
+   12  systemctl start ntp
+   13  systemctl start ntpd
+   14  systemctl enable ntpd
+   15  vim /etc/yum.repos.d/virt7-docker-common-release.repo
+   16  yum -y install --enablerepo=virt7-docker-common-release kubernetes docker etcd
+   17  setenforce 0
+   18  getenforce
+   19  vim /etc/kubernetes/config 
+   20  vim /etc/etcd/etcd.conf 
+   21  vim /etc/kubernetes/apiserver 
+   22  systemctl enble etcd kube-apiserver kube-controller-manager kube-scheduler
+   23  systemctl enable etcd kube-apiserver kube-controller-manager kube-scheduler
+   24  systemctl enable start kube-apiserver kube-controller-manager kube-scheduler
+   25  systemctl start etcd kube-apiserver kube-controller-manager kube-scheduler
+   26  systemctl status etcd kube-apiserver kube-controller-manager kube-scheduler | grep "(runnig)" | wc -l
+   27  systemctl status etcd kube-apiserver kube-controller-manager kube-scheduler | grep "(running)" | wc -l
+   28  man kubectl
+   29  kubectl get nodes
+   30  man kubectl-get
+   31  kubectl describe nodes
+   32  kubectl get nodes -o jsonpath='{.items[*].status.addresses[?(@.type=="ExternalIp")].address}'
+   33  kubectl -get nodes -o jsonpath='{range .item[*]}{@.metadata.name}:{range @.status.conditions[*]}{@.type}={@.status}:{end}{end}' | tr ' ; ' "\n" | grep "Ready=True"
+   34  kubectl get nodes -o jsonpath='{range .item[*]}{@.metadata.name}:{range @.status.conditions[*]}{@.type}={@.status}:{end}{end}' | tr ' ; ' "\n" | grep "Ready=True"
+   35  kubectl get nodes -o jsonpath='{range .item[*]}{@.metadata.name}:{range @.status.conditions[*]}{@.type}={@.status};{end}{end}' | tr ' ; ' "\n" | grep "Ready=True"
+   36  kubectl get pods
+   37  kubectl get nodes
+   38  docker images
+   39  exit
+   40  history mastercontroller.txt
+   41  history >> mastercontroller.txt
