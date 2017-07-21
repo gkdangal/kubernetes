@@ -1,0 +1,61 @@
+    1  bash script.sh 
+    2  passwd
+    3  useradd govinda
+    4  passwd govinda
+    5  usermod -g wheel govinda
+    6  su - govinda
+    7  exit
+    8  vim /etc/yum.repos.d/virt7-docker-common-release.repo
+    9  yum update
+   10  yum -y install --enablerepo=virt7-docker-common-release kubernetes docker
+   11  cd
+   12  pwd
+   13  vim /etc/kubernetes/config 
+   14  yum -y install --enablerepo=virt7-docker-common-release kubernetes docker tecd
+   15  yum -y install --enablerepo=virt7-docker-common-release kubernetes docker etcd
+   16  vim /etc/kubernetes/config 
+   17  vim /etc/kubernetes/kubelet 
+   18  systemctl enable kube-proxy kubelet docker
+   19  systemctl start kube-proxy kubelet docker
+   20  systemctl start kube-proxy kubelet docker | grep "(running)" | wc -l
+   21  systemctl status kube-proxy kubelet docker | grep "(running)" | wc -l
+   22  docker images
+   23  docker --version
+   24  docker pull hello-world
+   25  docker images
+   26  docker run hello-world
+   27  systemctl status kube-proxy kubelet docker | grep "(running)" | wc -l
+   28  systemctl start kube-proxy kubelet docker | grep "(running)" | wc -l
+   29  systemctl restart kube-proxy kubelet docker
+   30  systemctl restart kube-proxy kubelet docker etcd
+   31  systemctl enable kube-proxy kubelet docker etcd
+   32  vim /etc/kubernetes/config 
+   33  vim /etc/kubernetes/kubelet 
+   34  vim /etc/hosts
+   35  systemctl enable ntpd
+   36  systemctl stop etcd kube-apiserver kube-controller-manager kube-scheduler
+   37  systemctl stop ntpd kube-proxy docker kubelet
+   38  systemctl start ntpd kube-proxy docker kubelet
+   39  docker pull hello-world
+   40  docker run hello-world
+   41  docker images
+   42  docker pull ubuntu:xenial
+   43  docker images
+   44  docker run -i -t ubuntu:xenial /bin/bash
+   45  docker ps
+   46  docker ps -a
+   47  docker restart fervent_fermi
+   48  docker ps
+   49  docker attach [root@gkdangal5 govinda]#
+   50  [root@gkdangal5 govinda]# docker run -i -t ubuntu:xenial /bin/bash
+   51  root@2c3f435faa9c:/# ps -aux
+   52  USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+   53  root         1  0.0  0.1  18240  1884 ?        Ss   09:13   0:00 /bin/bash
+   54  root         9  0.0  0.1  34420  1448 ?        R+   09:36   0:00 ps -aux
+   55  root@2c3f435faa9c:/# exit
+   56  exit
+   57  docker images
+   58  docker restart fervent_fermi
+   59  docker attach fervent_fermi
+   60  exit
+   61  history >> minion1.txt
