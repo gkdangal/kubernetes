@@ -1,0 +1,73 @@
+    1  bash script.sh 
+    2  passwd
+    3  useradd govinda
+    4  passwd govinda
+    5  usermod -g wheel govinda
+    6  su - govinda
+    7  exit
+    8  vim /etc/yum.repos.d/virt7-docker-common-release.repo
+    9  yum update
+   10  yum -y install --enablerepo=virt7-docker-common-release kubernetes docker
+   11  ping gkdangal6.mylabserver.com
+   12  ping gkdangal5.mylabserver.com
+   13  vim /etc/kubernetes/config 
+   14  vim /etc/kubernetes/kubelet 
+   15  systemctl enable kube-proxy kubelet docker
+   16  systemctl start kube-proxy kubelet docker
+   17  systemctl status kube-proxy kubelet docker | grep "(running)" | wc -l
+   18  docker images
+   19  docker --version
+   20  docker pull hello-world
+   21  docker run hello-world
+   22  yum -y install --enablerepo=virt7-docker-common-release kubernetes docker etcd
+   23  systemctl enable etcd
+   24  systemctl start etcd
+   25  rpm -qa | grep ntpd
+   26  rpm -qa | grep etcd
+   27  rpm -qa | grep kubernetes
+   28  rpm -qa | grep docker
+   29  vim /etc/kubernetes/config 
+   30  vim /etc/kubernetes/kubelet 
+   31  vim /etc/kubernetes/config 
+   32  vim /etc/hosts
+   33  systemctl enable ntpd
+   34  systemctl stop ntpd kube-proxy docker kubelet
+   35  systemctl status ntpd kube-proxy docker kubelet
+   36  systemctl start ntpd kube-proxy docker kubelet
+   37  docker pull hello-world
+   38  docker run hello-world
+   39  docker images
+   40  docker version
+   41  docker info
+   42  df -h
+   43  cd /var/lib/docker/
+   44  ls -l
+   45  cd containers/
+   46  ls =l
+   47  ls l
+   48  ls -l
+   49  docker ps
+   50  docker ps -a
+   51  ls -
+   52  ls -l
+   53  cd ..
+   54  ls -l
+   55  cd images
+   56  ls -l
+   57  cd image
+   58  ls -l
+   59  cd devicemapper/
+   60  ls -l
+   61  cd imagedb/
+   62  ls -l
+   63  cd content/
+   64  ls -l
+   65  cd sha256/
+   66  ls -l
+   67  docker images
+   68  exit
+   69  yum install git
+   70  hostname
+   71  pwd
+   72  history 
+   73  history >> minion2.txt
